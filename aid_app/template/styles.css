@@ -1,0 +1,165 @@
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+} */
+
+/* General Reset */
+/* General Reset */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #002f6c; /* Dark blue color */
+    padding: 10px 20px;
+    color: white;
+    height: 60px;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Menu Links */
+.menu {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+/* Dropdown Container */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 150px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #002f6c;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    font-weight: normal;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Donate Button */
+.donate-button a {
+    background-color: white;
+    color: #002f6c;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.donate-button a:hover {
+    background-color: #f2f2f2;
+}
+
+/* Styling for dropdown details */
+.dropdown-detail {
+    display: none;
+    padding: 10px;
+    background-color: #e3f2fd; /* Light blue for content visibility */
+    border-top: 1px solid #d1d1d1;
+}
+
+/* Display dropdown content when hovered */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Display additional details when an item is hovered */
+.dropdown-content a:hover + .dropdown-detail {
+    display: block;
+}
+
+/* Basic styling for the dropdown */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    background-color: #e3f2fd;
+    border: 1px solid #d1d1d1;
+    position: absolute;
+    min-width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Styling for dropdown links */
+.dropdown-content a {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #d1d1d1;
+    border-radius: 4px;
+}
+
+/* Dropdown menu items */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+

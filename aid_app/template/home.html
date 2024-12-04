@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humanitarian Aid Coordination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container {
+            margin-bottom: 20px;
+        }
+        .form-container input, .form-container select {
+            padding: 10px;
+            margin: 5px;
+            width: 200px;
+        }
+        .form-container button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Humanitarian Aid Coordination Platform</h1>
+
+    <div class="form-container">
+        <h2>Distribute Aid</h2>
+        <form id="distributeForm">
+            <select name="aid_item" id="aid_item" required>
+                <option value="">Select Aid Item</option>
+                {% for item in aid_items %}
+                    <option value="{{ item.id }}">{{ item.name }}</option>
+                {% endfor %}
+            </select>
+            <select name="distribution_center" id="distribution_center" required>
+                <option value="">Select Distribution Center</option>
+                {% for center in distribution_centers %}
+                    <option value="{{ center.id }}">{{ center.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="number" name="quantity" placeholder="Quantity" required>
+            <input type="date" name="date" required>
+            <button type="submit">Distribute Aid</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('distributeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var formData = new FormData(this);
+            fetch('/distribute_aid/', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => alert('Error: ' + error));
+        });
+    </script>
+</body>
+</html>

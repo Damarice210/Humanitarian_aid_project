@@ -1,0 +1,45 @@
+<!-- {% extends 'base.html' %}
+{% block content %}
+<h2>Distribution List</h2>
+<table>
+    <tr>
+        <th>Beneficiary</th>
+        <th>Aid Item</th>
+        <th>Date</th>
+    </tr>
+    {% for distribution in distributions %}
+    <tr>
+        <td>{{ distribution.beneficiary.name }}</td>
+        <td>{{ distribution.aid_item.name }}</td>
+        <td>{{ distribution.distributed_on }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %} -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Distribution</title>
+</head>
+<body>
+    <h1>Add Distribution</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="item">Aid Item:</label>
+        <select name="item_id" id="item">
+            {% for item in items %}
+            <option value="{{ item.id }}">{{ item.name }} (Available: {{ item.quantity }})</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="beneficiary">Beneficiary Name:</label>
+        <input type="text" name="beneficiary" id="beneficiary" required>
+        <br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required>
+        <br><br>
+        <button type="submit">Distribute</button>
+    </form>
+</body>
+</html>
